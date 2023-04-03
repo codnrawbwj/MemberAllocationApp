@@ -4,6 +4,8 @@ import maleProfile from './images/male.png'
 
 const Employees = () => {
 
+  const [selectedTeam, setTeam] = useState("TeamA");
+
   const [employees, setEmployees] = useState(
   [{
     id: 1,
@@ -90,17 +92,22 @@ const Employees = () => {
     teamName: "TeamD"
   }]);
 
+  function handleTeamSelectionChange(event) {
+    console.log(event.target.value);
+    setTeam(event.target.value);
+  }
+  
   
   return (
     <div>
       <div className='container'>
-        <div className="row justify-content-center mt-3 mb-3">
-          <div class="col-6">
+        <div className="row justify-content-center mt-3 mb-3" value={selectedTeam} onChange={handleTeamSelectionChange}>
+          <div className="col-6">
             <select className="form-select form-select-lg">
               <option value='TeamA'>Team A</option>
               <option value='TeamB'>Team B</option>
-              <option value='TeamB'>Team C</option>
-              <option value='TeamB'>Team D</option>
+              <option value='TeamC'>Team C</option>
+              <option value='TeamD'>Team D</option>
             </select>
           </div>
         </div>
