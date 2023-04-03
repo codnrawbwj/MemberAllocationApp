@@ -96,6 +96,7 @@ const Employees = () => {
         <p>{employee.fullName}</p>
         ))
       }
+
     </main>
   )
 }
