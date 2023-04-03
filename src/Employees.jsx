@@ -1,4 +1,6 @@
 import {useState} from 'react'
+import femaleProfile from './images/female.png'
+import maleProfile from './images/male.png'
 
 const Employees = () => {
 
@@ -90,14 +92,42 @@ const Employees = () => {
 
   
   return (
-    <main>
-      {
-        employees.map((employee) =>(
-        <p>{employee.fullName}</p>
-        ))
-      }
-
-    </main>
+    <div>
+      <div className='container'>
+        <div className="row justify-content-center mt-3 mb-3">
+          <div class="col-6">
+            <select className="form-select form-select-lg">
+              <option value='TeamA'>Team A</option>
+              <option value='TeamB'>Team B</option>
+              <option value='TeamB'>Team C</option>
+              <option value='TeamB'>Team D</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <div className="container">
+        <div className="row justify-content-center mt-3 mb-3">
+          <div className="col-8">
+            <div className="card-collection">
+              {
+                employees.map((employee) => (
+                  <div id={employee.id} className='card m-2' style={{cursor: 'pointer'}}>
+                    {(employee.gender === 'female')?
+                    <img src={femaleProfile} className='card-img-top' />:
+                    <img src={maleProfile} className='card-img-top' />}
+                    <div className='card-body'>
+                      <h5 className='card-title'>Full Name: {employee.fullName}</h5>
+                      <p className='card-text'><b>Designation: </b>{employee.designation}</p>
+                    </div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
