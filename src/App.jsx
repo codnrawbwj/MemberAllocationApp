@@ -139,7 +139,12 @@ export default function App() {
             />}>    
           </Route>
           <Route path='/GroupedTeamMembers' 
-            element={<GroupedTeamMembers />
+            element={
+              <GroupedTeamMembers 
+                employees={employees}
+                selectedTeam={selectedTeam}
+                setTeam={setTeam}
+              />
             }>
           </Route>
           <Route path='/*' 
