@@ -11,7 +11,7 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
     var teamA = {
       team:'TeamA',
       members:teamAMembers,
-      collapsed: selectedTeam === 'TeamA' ? false:true}
+      collapsed: selectedTeam === 'TeamA' ? false : true}
     teams.push(teamA);
 
     var teamBMembers = employees.filter((employee) => employee.teamName === 'TeamB');
@@ -56,7 +56,7 @@ const GroupedTeamMembers = ({employees, selectedTeam, setTeam}) => {
           <div key={item.team} className="card mt-2" style={{cursor:"pointer"}}>
             <h4 id={item.team} className='card-header text-secondary bg-white' onClick={handleTeamClick}>Team Name: {item.team}
             </h4>
-            <div id={"collapse_" + item.team} className={item.collapsed === true?"collapsed":""}> 
+            <div id={"collapse_" + item.team} className={item.collapsed === true?"collapse":""}> 
               <hr/>
               {
                 item.members.map(member => {
